@@ -4,7 +4,8 @@
 
 import Inert from 'inert';
 import Vision from 'vision';
-import HapiSwagger from 'hapi-swagger';
+import Swagger from 'hapi-swaggered';
+import SwaggerUI from 'hapi-swaggered-ui';
 import Good from 'good';
 import Pack from '../package.json';
 import Auth from './auth';
@@ -18,47 +19,67 @@ import Socket from './socket';
  */
 export default [
   /* -----------------------
-            Register inert
-         ------------------------ */
+        Register inert
+      ------------------------ */
   {
-    register: Inert,
+    plugin: Inert,
     options: {}
   },
 
   /* -----------------------
-            Register vision
-         ------------------------ */
+        Register vision
+      ------------------------ */
   {
-    register: Vision,
+    plugin: Vision,
     options: {}
   },
 
   /* -----------------------
-            Register Swagger
-         ------------------------ */
+        Register Swagger
+      ------------------------ */
 
   {
-    register: HapiSwagger,
+    plugin: Swagger,
     options: {
+      tags: {
+        api: Pack.description
+      },
       info: {
         title: Pack.name,
         description: Pack.description,
         version: Pack.version
+      }
+    }
+  },
+
+  /* -----------------------
+        Register SwaggerUI
+      ------------------------ */
+
+  {
+    plugin: SwaggerUI,
+    options: {
+      title: Pack.name,
+      path: '/api/docs',
+      authorization: {
+        field: 'authorization',
+        scope: 'header', // header works as well
+        // valuePrefix: 'bearer '// prefix incase
+        defaultValue: 'token',
+        placeholder: 'Enter your authorization token here'
       },
-      swaggerUI: false,
-      documentationPath: '/api/docs',
-      expanded: 'full',
-      pathPrefixSize: 7,
-      basePath: '/api/v1'
+      swaggerOptions: {
+        docExpansion: 'list'
+      }
     }
   },
 
   /* ------------------
-            Register good
-         ------------------ */
+        Register good
+      ------------------ */
 
   {
-    register: Good,
+    plugin: Good,
     options: {
       ops: {
         interval: 1000
@@ -80,37 +101,34 @@ export default [
   },
 
   /* ---------------------------
-            Setting up the jwt authentication.
+          Setting up the jwt authentication.
         ---------------------------- */
   {
-    // register plugins to server instance.
-    register: Auth,
+    plugin: Auth,
     options: {}
   },
 
   /* ---------------------------
-            Setting up the web-socket connection.
-        ---------------------------- */
+        Setting up the web-socket connection.
+      ---------------------------- */
   {
-    // register plugins to server instance.
-    register: Socket,
+    plugin: Socket,
     options: {}
   },
 
   /* ---------------------------
-            Restfull Api's.
-        ---------------------------- */
+        Restfull Api's.
+      ---------------------------- */
   {
-    register: Rest,
+    plugin: Rest,
     options: {}
   },
 
   /* ---------------------------
-            Init the index route.
-        ---------------------------- */
+        Init the index route.
+      ---------------------------- */
   {
-    // register plugins to server instance.
-    register: Main,
+    plugin: Main,
     options: {}
   }
 ];
