@@ -8,13 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ignivalancy/Hano.git"
+    "url": "git+https://github.com/ignivalancy/hano.git"
   },
   "keywords": ["node", "hapi", "js", "socket", "mongo"],
   "bugs": {
-    "url": "https://github.com/ignivalancy/Hano/issues"
+    "url": "https://github.com/ignivalancy/hano/issues"
   },
-  "homepage": "https://github.com/ignivalancy/Hano#readme",
+  "homepage": "https://github.com/ignivalancy/hano#readme",
   "dependencies": {
     "apn": "2.1.5",
     "bluebird": "^3.5.1",
