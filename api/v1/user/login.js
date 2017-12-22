@@ -49,8 +49,7 @@ export default {
         type: Joi.number()
           .required()
           .valid(1, 2, 3) // 1 for business, 2 for user, 3 for admin
-      },
-      failAction: failActionJoi
+      }
     }
   },
   handler: loginUser

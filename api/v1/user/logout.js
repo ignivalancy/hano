@@ -16,8 +16,7 @@ export default {
         authorization: Joi.string()
           .trim()
           .required()
-      }).options({ allowUnknown: true }),
-      failAction: failActionJoi
+      }).options({ allowUnknown: true })
     }
   },
   handler: logoutUser
