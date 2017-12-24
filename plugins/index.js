@@ -41,13 +41,27 @@ export default [
   {
     plugin: Swagger,
     options: {
-      tags: {
-        api: Pack.description
-      },
       info: {
         title: Pack.name,
         description: Pack.description,
-        version: Pack.version
+        version: Pack.version,
+        contact: {
+          name: Pack.author,
+          url: Pack.url,
+          email: `${Pack.author} <${Pack.email}>`
+        },
+        license: {
+          name: Pack.license,
+          url: Pack.homepage
+        }
+      },
+      tagging: {
+        mode: 'tags',
+        stripRequiredTags: true
+      },
+      tags: {
+        // api: Pack.description,
+        user: 'user rest endpoints'
       }
     }
   },
@@ -63,13 +77,13 @@ export default [
       path: '/api/docs',
       authorization: {
         field: 'authorization',
-        scope: 'header', // header works as well
+        scope: 'header' // header works as well
         // valuePrefix: 'bearer '// prefix incase
-        defaultValue: 'token',
-        placeholder: 'Enter your authorization token here'
+        // defaultValue: 'token',
+        // placeholder: 'Enter your authorization token here'
       },
       swaggerOptions: {
-        docExpansion: 'list'
+        // docExpansion: 'list'
       }
     }
   },
