@@ -1,6 +1,5 @@
 import Joi from 'joi';
 import { registerUser } from '../../../controllers/user';
-import { failActionJoi } from '../../../utilities/rest';
 
 export default {
   method: 'POST',
