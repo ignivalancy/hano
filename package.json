@@ -68,7 +68,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "reinstall": "rm -rf node_modules && npm install",
     "precommit": "lint-staged",
-    "prettier":
+    "rp":
       "prettier --write \"**/*.json\" \"**/*.js\" \"config/**/*.json\" \"collections/**/*.js\" \"controllers/**/*.js\" \"plugins/**/*.js\" \"routes/**/*.js\" \"services/**/*.js\" \"utilities/**/*.js\""
   },
   "author": "Lancy Goyal",
