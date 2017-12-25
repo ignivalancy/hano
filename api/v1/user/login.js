@@ -8,15 +8,15 @@ export default {
     auth: false,
     description: 'Api service used to login user.',
     notes:
-      '<br/>The request object should contain following fields in its <b>Payload/Body</b> object<br/>&bull;<b> Email</b>: Should be a valid email or valid phone number (10 digit with max 4 digit country code). <br/>&bull;<b> Password</b>: Containing atleast one alphabet and one number, 6 - 8 characters.<br/>&bull;<b> Device Type</b>: Should contains type of device like ios,android. If type 2 then it is required otherwise not.<br/>&bull;<b> Device Token</b>: Should contains token of device. If type 2 then it is required otherwise not.<br/>&bull;<b> Type</b>: Should contains type of request like 1 for buisness user, 2 for app user, 3 for staff user and 4 for admin user.',
+      '<br/>The request object should contain following fields in its <b>Payload/Body</b> object<br/>&bull;<b> Email</b>: Should be a valid email or valid phone number (10 digit with max 4 digit country code). <br/>&bull;<b> Password</b>: Containing atleast one alphabet and one number, 6 - 8 characters.',
     tags: ['api', 'user'],
     validate: {
       payload: {
-        uniqId: Joi.string()
+        email: Joi.string()
           .trim()
           .lowercase()
           .required()
-          .label('Uniq Id'),
+          .label('Email'),
         password: Joi.string()
           .trim()
           .regex(/^([a-zA-Z0-9_-]){6,8}$/)
@@ -30,24 +30,7 @@ export default {
             }
           })
           .required()
-          .label('Password'),
-        device: Joi.object()
-          .keys({
-            type: Joi.string()
-              .trim()
-              .required()
-              .valid('ios', 'android')
-              .label('Device Type'),
-            token: Joi.string()
-              .trim()
-              .required()
-              .label('Device Token')
-          })
-          .when('type', { is: 2, then: Joi.required(), otherwise: Joi.optional() })
-          .label('Device Info'),
-        type: Joi.number()
-          .required()
-          .valid(1, 2, 3) // 1 for business, 2 for user, 3 for admin
+          .label('Password')
       }
     }
   },

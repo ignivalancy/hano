@@ -2,7 +2,7 @@ import Joi from 'joi';
 import { logoutUser } from '../../../controllers/user';
 
 export default {
-  method: 'DELETE',
+  method: 'PUT',
   path: '/api/v1/user/logout',
   config: {
     auth: 'jwt',
