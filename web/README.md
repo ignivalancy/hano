@@ -2,7 +2,7 @@
 
 Powered By React and Redux.
 
-### Guide(https://github.com/ignivalancy/hano/blob/master/web/GUIDE.md)
+### Guide (https://github.com/ignivalancy/hano/blob/master/web/GUIDE.md)
 
 ### Includes
 
