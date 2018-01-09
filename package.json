@@ -9,13 +9,7 @@
     "type": "git",
     "url": "git+https://github.com/ignivalancy/hano.git"
   },
-  "keywords": [
-    "node",
-    "hapi",
-    "js",
-    "socket",
-    "mongo"
-  ],
+  "keywords": ["node", "hapi", "js", "socket", "mongo"],
   "bugs": {
     "url": "https://github.com/ignivalancy/hano/issues"
   },

@@ -21,7 +21,7 @@ export const downloadFile = {
 export const uploadFile = async (request, h) => {
   const { payload } = request;
   const file = payload['file'];
-  console.log('payload')
+  console.log('payload');
   try {
     const data = await uploader(file, fileOptions);
     return successAction(data);
