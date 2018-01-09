@@ -10,8 +10,8 @@ import Good from 'good';
 import Pack from '../package.json';
 import Auth from './auth';
 import Rest from './rest';
-import Main from './main';
 import Socket from './socket';
+import Main from './main';
 
 /**
  * exports array of plugins with configuration.
@@ -61,7 +61,8 @@ export default [
       },
       tags: {
         // api: Pack.description,
-        user: 'user rest endpoints'
+        user: 'user rest endpoints',
+        util: 'util endpoints'
       }
     }
   },

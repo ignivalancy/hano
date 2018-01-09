@@ -9,7 +9,13 @@
     "type": "git",
     "url": "git+https://github.com/ignivalancy/hano.git"
   },
-  "keywords": ["node", "hapi", "js", "socket", "mongo"],
+  "keywords": [
+    "node",
+    "hapi",
+    "js",
+    "socket",
+    "mongo"
+  ],
   "bugs": {
     "url": "https://github.com/ignivalancy/hano/issues"
   },
@@ -37,6 +43,7 @@
     "nodemailer": "4.2.0",
     "nodemailer-smtp-transport": "2.7.4",
     "path": "^0.12.7",
+    "slugify": "^1.2.9",
     "socket.io": "2.0.4",
     "stripe": "5.1.1",
     "twilio": "3.9.0",
@@ -68,7 +75,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "ri": "rm -rf node_modules && npm install",
     "lint": "./node_modules/.bin/eslint . --ext .js",
-    "rp": "prettier --write \"**/*.json\" \"**/*.js\"",
+    "rp": "prettier --write \"**/*.json\" \"**/*.js\" \"!web/**/*.js\" \"!web/**/*.json\"",
     "precommit": "npm run rp && lint-staged"
   },
   "author": "Lancy Goyal",
